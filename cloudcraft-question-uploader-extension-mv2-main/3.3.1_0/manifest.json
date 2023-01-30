@@ -1,0 +1,23 @@
+{
+   "background": {
+      "persistent": true,
+      "scripts": [ "background.js", "hot-reload.js" ]
+   },
+   "description": "Upload Content (quiz questions) from YAML into CC",
+   "icons": {
+      "128": "la-flash-card-icon-128.png",
+      "16": "la-flash-card-icon-16.png",
+      "48": "la-flash-card-icon-48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAj7NAp/GKOYJ2LI+0txsopdJRHmuDhHhtPvY4QbKWtk0QOhow4rJgiKPy6nbOqP3BztkkGhy4kSS+YVBL1Q/Do/324oeudKmNk+tMlz4y6jyMO5HlTvuGTKn8KnxPOFodfGW/iqiuT5dL5c7XhWvcqugPqcrOUqOSNRXrPhhz8AWlqyJ1ZSgBe3dlEFW5X21WNYF46sMd7vplgUSEGzVZKENNOK4bXURorlZATwPVO+JtzN49ilAeJbuejpgU17Hxm4YQniqqZXULKYg/IvrPsK3ukmSOgCFqbiXsdQAuXqSnZiMWu6MHNCpPG5Vq5ZVUi3K+KY+VNBFtxgPmwtCRzwIDAQAB",
+   "manifest_version": 2,
+   "name": "Linux Academy Content Uploader",
+   "page_action": {
+      "default_icon": "la-flash-card-icon.png",
+      "default_popup": "questions_popup.html",
+      "default_title": "Content Uploader"
+   },
+   "permissions": [ "activeTab", "declarativeContent", "tabs" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "3.3.1"
+}

@@ -1,0 +1,83 @@
+- questionText: >
+    MODIFIED QUESTION
+  uploaded: false
+  tags:
+    - Linux
+    - CentOS 7
+    - RHEL 7
+    - Dovecot
+  videoName: 211.3 Managing Remote Email Delivery (Weight = 2)
+  choices:
+    - text: |
+        verbose_process = yes
+      correctAnswer: false
+      explanation: This is an invalid directive.
+    - text: |
+        proctitle = yes
+      correctAnswer: false
+      explanation: This is an invalid directive.
+    - text: |
+        verbose_proctitle = yes
+      correctAnswer: true
+      explanation: The proper configuration directive is `verbose_proctitle = yes`.
+    - text: |
+        process_titles = yes
+      correctAnswer: false
+      explanation: This is an invalid directive.
+- questionText: |
+    What port does an SSL secured IMAP service run on?
+  uploaded: false
+  tags:
+    - Linux
+    - CentOS 7
+    - RHEL 7
+    - Dovecot
+  videoName: 211.3 Managing Remote Email Delivery (Weight = 2)
+  choices:
+    - text: |
+        995
+      correctAnswer: false
+      explanation: 995 is not the correct port.
+    - text: |
+        80
+      correctAnswer: false
+      explanation: 80 is not the correct port.
+    - text: |
+        993
+      correctAnswer: true
+      explanation: An SSL secured IMAP service runs on port 993.
+    - text: |
+        443
+      correctAnswer: false
+      explanation: 443 is not the correct port.
+
+- questionText: |
+    Which two commands are used to check the mail queue?
+  uploaded: false
+  tags:
+    - Linux
+    - CentOS 7
+    - RHEL 7
+    - Postfix
+  videoName: 211.2 Managing Email Delivery (Weight = 2)
+  choices:
+    - text: |
+        mailq, gmail
+      correctAnswer: false
+      explanation: |
+        One of these commands is incorrect.
+    - text: |
+        qmail, gmail
+      correctAnswer: false
+      explanation: |
+        Both of these commands are incorrect.
+    - text: |
+        mailq, gshape
+      correctAnswer: true
+      explanation: |
+        These two commands are used to check the mail queue: `mailq` and `gshape`.
+    - text: |
+        gshape, gmail
+      correctAnswer: false
+      explanation: |
+        One of these commands is incorrect.

@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>CloudCraft Question Pool Importer</title>
+  <script src="js-yaml.js"></script>
+  <script src="questions_popup.js"></script>
+  <link rel="stylesheet" href="bulma.min.css" type="text/css" media="screen" charset="utf-8">
+
+  <style>
+    .tabs {
+      overflow: initial;
+    }
+
+    .tabs.is-toggle li.is-active a {
+      background-color: #00d1b2;
+      border-color: #00d1b2;
+    }
+
+    .tabs.is-toggle a.is-disabled {
+      cursor: not-allowed;
+      color: #ccc;
+    }
+
+    .tabs.is-toggle a.is-disabled:hover {
+      cursor: not-allowed;
+      color: #ccc;
+      border-color: #dbdbdb;
+      background-color: #fff;
+    }
+
+    textarea {
+      font-family: monospace;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="section">
+    <h1 class="title">Question Pools</h1>
+
+    <div id="created" class="notification is-success is-hidden"></div>
+    <div id="updated" class="notification is-info is-hidden"></div>
+    <div id="skipped" class="notification is-warning is-hidden"></div>
+    <div id="failed" class="notification is-danger is-hidden"></div>
+
+    <div class="tabs is-toggle">
+      <ul>
+        <li id="newPoolTab" class="is-active">
+          <a>
+            <span>Create New</span>
+          </a>
+        </li>
+        <li id="existingPoolTab">
+          <a>
+            <span>Update Existing</span>
+          </a>
+        </li>
+        <li id="exportPoolTab">
+          <a>
+            <span>Download Existing</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div id="exporter-page" class="is-hidden">
+      <div id="download-pool" class="field">
+        <label class="label" for="downloadPoolId">Question Pool ID</label>
+        <div class="control">
+          <input id="downloadPoolId" class="input" type="text"
+            placeholder="eg. 652acae3-1575-40a6-9b9a-1984f99a945a"></input>
+        </div>
+      </div>
+
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label for="exportFormat" class="label">Export Format</label>
+        </div>
+        <div class="field-body">
+          <div class="field is-narrow">
+            <div class="control">
+              <div class="select is-fullwidth">
+                <select id="exportFormat" name="exportFormat">
+                  <option value="yaml" selected>YAML</option>
+                  <option value="csv">CSV</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="checkbox label">
+          <input id="stripIds" type="checkbox">
+          Strip ID Fields?
+        </label>
+      </div>
+
+      <div class="field">
+        <div class="control">
+          <button class="button is-primary" id="downloadQuestions">Download Question Pool YAML</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="uploader-page">
+      <div id="new-pool" class="field">
+        <label class="label" for="questionPoolName">Question Pool Name</label>
+        <div class="control">
+          <input id="questionPoolName" class="input" type="text" placeholder="eg. QUIZ: Linux Basics"></input>
+        </div>
+      </div>
+
+      <div id="existing-pool" class="field is-hidden">
+        <label class="label" for="questionPoolId">Question Pool ID</label>
+        <div class="control">
+          <input id="questionPoolId" class="input" type="text"
+            placeholder="eg. 652acae3-1575-40a6-9b9a-1984f99a945a"></input>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label" for="questionsYaml">Question Pool YAML</label>
+        <div class="control">
+          <textarea class="textarea" id="questionsYaml"></textarea>
+        </div>
+      </div>
+
+      <div class="field is-grouped">
+        <div class="control">
+          <button class="button is-primary" id="populateQuestions">Create Question Pool</button>
+        </div>
+        <div class="control">
+          <button class="button is-text is-hidden" id="question-pool-link">View Your Question Pool</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="progress-field" class="field is-hidden">
+      <span class="is-size-5 has-text-dark">Don't close popup until operation is complete.</span>
+      <progress id="progress-bar" class="progress is-primary" value="0" max="100">0%</progress>
+    </div>
+  </div>
+</body>
+
+</html>

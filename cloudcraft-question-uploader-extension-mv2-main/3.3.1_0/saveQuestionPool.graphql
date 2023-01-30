@@ -1,0 +1,26 @@
+mutation saveQuestionPool($input: AssessmentsContentQuestionPoolInput!) {
+  saveQuestionPool(input: $input) {
+    id
+    name
+    createdBy
+    questions {
+      id
+      poolId
+      questionText
+      type
+      tags
+      bloomsTaxonomy
+      difficulty
+      domain
+      choices {
+        id
+        text
+        explanation
+        correctAnswer
+        __typename
+      }
+      __typename
+    }
+    __typename
+  }
+}
